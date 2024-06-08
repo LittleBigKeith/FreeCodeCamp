@@ -37,3 +37,12 @@ ul > li {
   height: auto;
   max-width: 100%;
 }
+
+a {
+  color: #EEEEEE;
+}
+
+a:hover, a:active {
+  color: #DDDD33;
+}
+
