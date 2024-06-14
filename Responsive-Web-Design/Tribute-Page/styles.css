@@ -1,17 +1,23 @@
 body {
   background-image: url(https://physicsworld.com/wp-content/uploads/2015/05/PW-2015-05-13-Cartwright-slow.jpg);
   color: #EEEEEE;
-  font-family: Tahoma;
-  font-weight: 600;
+  font-family: Baskervville;
   margin: 50px auto;
   max-width: 750px;
 }
 
-h1, h2, figcaption {
+h1, h2 {
+  font-family: Raleway;
   text-align: center;
+  font-weight: 900;
+}
+
+h1 > a {
+  text-decoration: none;
 }
 
 figcaption {
+  text-align: center;
   margin: 10px auto;
 }
 
@@ -20,10 +26,12 @@ address {
 }
 
 #timeline-section {
-background-color: #121212AA;
+  background-color: #121212CC;
   margin: 40px auto;
   padding: 40px 80px;
   text-align: justify;
+  box-shadow: 1px 1px 20px white;
+  border-radius: 20px;
 }
 
 ul > li {
@@ -36,6 +44,7 @@ ul > li {
   margin: 0 auto;
   height: auto;
   max-width: 100%;
+  box-shadow: 0 0 100px black;
 }
 
 a {
@@ -46,3 +55,19 @@ a:hover, a:active {
   color: #DDDD33;
 }
 
+#tribute-info {
+  display: grid;
+  grid-template-columns: minmax(6rem, 1fr) 10fr;
+}
+
+#tribute-info > .year {
+  border-right: 1px solid white;
+}
+
+#tribute-info > .event {
+  margin-left: 1rem;
+}
+
+#tribute-info > span {
+  padding: 1rem;
+}
