@@ -1,6 +1,6 @@
 body {
   margin: 20px auto;
-  background: linear-gradient(#23237F, #2A2A49);
+  background: linear-gradient(#23236E, #191937);
   color: #E2E2FF;
   font-family: Tahoma;
 }
@@ -10,10 +10,32 @@ input, select, textarea, input[type="submit"] {
   margin: 5px 0 10px 0;
   color: #E2E2FF;
   background-color: #05055F;
+  border-radius: 12px;
+  padding: 5px 10px;
 }
 
 input, select {
-  height: 2.5em;
+  height: 2.5rem;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+input[type="submit"] {
+  text-transform: uppercase;
+  font-family: sans-serif;
+  letter-spacing: 0.1rem;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 20px;
+  height: auto;
+}
+
+input[type="submit"]:hover {
+  background-color: #3312AB;
+  cursor: pointer;
 }
 
 form {
@@ -21,9 +43,10 @@ form {
   max-width: 500px;
   min-width: 300px;
   margin: 50px auto;
-  background-color: rgba(109,109,183,0.5);
+  background-color: rgba(29,59,133,0.5);
   padding: 15px 30px;
   box-shadow: 0 0 15px 0 #E2E2FF;
+  border-radius: 30px;
 }
 
 fieldset {
@@ -39,6 +62,7 @@ fieldset:last-of-type {
 
 label {
   display: block;
+  margin: 5px 0;
 }
 
 h1, h2, p {
