@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rust Beginner Documentation</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body id="container">
+    <nav id="navbar">
+        <span><header><span class="header-main">Rust</span><br /><span class="header-sub">The programming language</span></header>
+        <span id="link-container">
+        <a href="#toolchain_setup" class="nav-link">Toolchain Setup</a>
+        <a href="#algebraic_types" class="nav-link">Algebraic Types</a>
+        <a href="#collections" class="nav-link">Collections</a>
+        <a href="#error_handling" class="nav-link">Error Handling</a>
+        <a href="#borrowing" class="nav-link">Borrowing</a>
+        </span>
+        </span>
+        <footer><a href="std.rs" rel="noreferrer" target="_new"><img src="https://www.rustacean.net/assets/cuddlyferris.svg" alt="rust crab logo"></a></footer>
+    </nav>
+    
+    <main id="main-doc">
+      <section class="main-section" id="toolchain_setup">
+        <header>Toolchain Setup</header>
+        
+          <p>Setting up the Rust toolchain is the first step to get started with Rust programming. Rust has a very straightforward and user-friendly installation process. Follow these steps to set up Rust on your system:</p>
+
+          <h2>Step 1: Install Rust</h2>
+
+          <h3>Install Rustup</h3>
+
+          <p>Rustup is the recommended way to install Rust. It manages Rust versions and associated tools. Open a terminal and run:</p>
+
+          <pre><code>curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh</code></pre>
+
+          <p>This command will download and run a script that installs Rustup. Follow the on-screen instructions to complete the installation.</p>
+
+          <h3>Add Rust to your system's PATH</h3>
+
+          <p>After installation, you need to add Rust to your system's PATH to make Rust commands available globally. The installation script usually takes care of this, but if not, you can manually add the following to your shell configuration file (e.g., .bashrc, .zshrc):<p>
+
+          <pre><code>export PATH="$HOME/.cargo/bin:$PATH"</code></pre>
+          <h3>Verify Installation</h3>
+
+          <p>To ensure Rust is installed correctly, open a new terminal session and run:</p>
+
+          <pre><code>rustc --version</code></pre>
+
+          <p>This should print the version of the Rust compiler you have installed.</p>
+
+          <h2>Step 2: Install Rust Components</h2>
+
+          <p>Rustup allows you to install additional components that enhance your Rust development experience.</p>
+
+          <h3>Install Rust Standard Library</h3>
+
+          <p>The Rust standard library is included by default, but you can update it by running:</p>
+
+          <pre><code>rustup update</code></pre>
+
+          <h3>Install Rust Documentation</h3>
+
+          <p>You can install the local copy of Rust documentation, which is helpful when you need offline access:</p>
+
+          <pre><code>rustup component add rust-docs</code></pre>
+
+          <h3>Install Rustfmt</h3>
+
+          <p>Rustfmt is a tool for formatting Rust code. It ensures your code adheres to the Rust style guidelines:</p>
+
+          <pre><code>rustup component add rustfmt</code></pre>
+
+          <h3>Install Clippy</h3>
+
+          <p>Clippy is a collection of lints to catch common mistakes and improve your Rust code:</p>
+
+          <pre><code>rustup component add clippy</code></pre>
+
+          <h2>Step 3: Setting Up Your Development Environment</h2>
+
+          <h3>Install an IDE or Text Editor</h3>
+
+          <p>Choose an IDE or text editor that supports Rust. Some popular choices are:</p>
+
+          <ul>
+            <li>Visual Studio Code: With the Rust extension installed, VS Code provides excellent support for Rust.</li>
+            <br />
+            <li>IntelliJ IDEA: The Rust plugin offers comprehensive Rust support.
+Atom: Install the ide-rust package for Rust support.</li>
+          </ul>
+
+          <h3>Configure the IDE</h3>
+
+          <p>After installing the editor, you might need to configure it to work seamlessly with Rust. Typically, this involves installing specific extensions or plugins and configuring settings for linting, formatting, and autocompletion.</p>
+
+          <h2>Step 4: Creating and Running a Rust Project</h2>
+
+          <h3>Create a New Rust Project</h3>
+
+          <p>Use Cargo, Rust’s build system and package manager, to create a new project:</p>
+
+          <pre><code>cargo new hello_world
+cd hello_world</code></pre>
+
+          <h3>Build and Run the Project</h3>
+
+          <p>Navigate to the project directory and run:</p>
+
+          <pre><code>cargo run</code></pre>
+
+          <p>This command compiles the project and runs the resulting executable. You should see the output:</p>
+
+          <pre><code>Hello, world!</code></pre>
+
+          <h2>Step 5: Keep Your Toolchain Up-to-Date</h2>
+
+          <p>Rust is constantly evolving, and new versions are released regularly. To keep your toolchain up-to-date, periodically run:</p>
+
+          <pre><code>rustup update</code></pre>
+
+          <p>This command updates Rustup, the Rust compiler, and all installed components to the latest versions.</p>
+
+          <h2>Conclusion</h2>
+      
+          <p>You now have a complete Rust toolchain setup, including the Rust compiler, Cargo, Rustfmt, Clippy, and documentation. With your development environment configured, you're ready to start building Rust applications. Happy coding!</p>
+
+      </section>
+      <section class="main-section" id="algebraic_types">
+        <header>Algebraic Types</header>
+        
+        <p>Algebraic types in Rust are used to create complex data structures. There are two main kinds:<p>
+
+        <ol>
+          <li><b>Structs:</b> Used to group together related data.</li>
+          <li><b>Enums:</b> Used to define types that can be one of several variants.</li>
+        </ol>
+
+        <h2>Structs</h2>
+        
+        <p>Structs are similar to classes in other programming languages. They allow you to group together related data under a single name.</p>
+
+        <h3>Defining a Struct</h3>
+
+        <p>Here's how you can define a simple struct in Rust:</p>
+
+        <pre><code>struct Point {
+    x: f64,
+    y: f64,
+}</code></pre>
+
+        <h3>Creating an Instance</h3>
+
+        <p>You can create an instance of a struct like this:</p>
+
+        <pre><code>let point = Point { x: 1.0, y: 2.0 };</code></pre>
+
+        <h3>Accessing Fields</h3>
+
+        <p>You can access the fields of a struct using dot notation:</p>
+
+        <pre><code>println!("Point coordinates: ({}, {})", point.x, point.y);</code></pre>
+
+        <h3>Methods on Structs</h3>
+
+        <p>You can define methods on structs using impl blocks:</p>
+
+        <pre><code>impl Point {
+    fn distance_from_origin(&self) -> f64 {
+        (self.x.powi(2) + self.y.powi(2)).sqrt()
+    }
+}
+
+let point = Point { x: 3.0, y: 4.0 };
+println!("Distance from origin: {}", point.distance_from_origin());
+</code></pre>
+
+        <h2>Enums</h2>
+
+        <p>Enums are used to define types that can be one of several variants. Each variant can have associated data.</p>
+
+        <h3>Defining an Enum</h3>
+
+        <p>Here's how you define an enum in Rust:</p>
+
+        <pre><code>enum Shape {
+    Circle { radius: f64 },
+    Rectangle { width: f64, height: f64 },
+}</code></pre>
+
+        <h3>Creating Instances</h3>
+
+        <p>You can create instances of an enum like this:</p>
+
+        <pre><code>let circle = Shape::Circle { radius: 1.0 };
+let rectangle = Shape::Rectangle { width: 2.0, height: 3.0 };</code></pre>
+
+        <h3>Pattern Matching with Enums</h3>
+        <p>Rust’s match statement allows you to handle each variant of an enum:</p>
+
+        <pre><code>fn area(shape: &Shape) -> f64 {
+    match shape {
+        Shape::Circle { radius } => 3.14 * radius * radius,
+        Shape::Rectangle { width, height } => width * height,
+    }
+}
+
+let circle = Shape::Circle { radius: 1.0 };
+let rectangle = Shape::Rectangle { width: 2.0, height: 3.0 };
+println!("Area of circle: {}", area(&circle));
+println!("Area of rectangle: {}", area(&rectangle));</code></pre>
+
+        <h3>Combining Structs and Enums</h3>
+
+        <p>You can combine structs and enums to create more complex types. For example, you can use structs to define the data for each variant of an enum.</p>
+
+
+        <pre><code>struct Circle {
+    radius: f64,
+}
+
+struct Rectangle {
+    width: f64,
+    height: f64,
+}
+
+enum Shape {
+    Circle(Circle),
+    Rectangle(Rectangle),
+}
+
+fn area(shape: &Shape) -> f64 {
+    match shape {
+        Shape::Circle(circle) => 3.14 * circle.radius * circle.radius,
+        Shape::Rectangle(rectangle) => rectangle.width * rectangle.height,
+    }
+}
+
+let circle = Shape::Circle(Circle { radius: 1.0 });
+let rectangle = Shape::Rectangle(Rectangle { width: 2.0, height: 3.0 });
+println!("Area of circle: {}", area(&circle));
+println!("Area of rectangle: {}", area(&rectangle));</code></pre>
+
+        <h2>Summary</h2>
+
+        <p>Rust's algebraic types, structs, and enums, allow you to define complex and expressive data structures. Structs are used to group related data together, while enums are used to define types that can be one of several variants. By combining these two types, you can create robust and flexible data models.</p>
+
+        <h3>Additional Resources</h3>
+        <p>For more detailed information, refer to the official Rust documentation:</p>
+
+        <ul>
+            <li><a href="https://doc.rust-lang.org/book/ch05-00-structs.html" rel="noreferrer" target="_new">Rust Book - Structs</a></li>
+            <li><a href="https://doc.rust-lang.org/book/ch06-00-enums.html" rel="noreferrer" target="_new">Rust Book - Enums</a></li>
+        </ul>
+
+      </section>
+      <section class="main-section" id="collections">
+        <header>Collections</header>
+        
+        <p>Rust collections are data structures that allow you to store and manage groups of values. The most commonly used collections are vectors, hash maps, and hash sets. This tutorial will guide you through understanding and using these collections effectively.<p>
+
+        <h2>Vectors</h2>
+
+        <p>Vectors are resizable arrays that can grow or shrink in size. They are implemented as Vec<T> where T is the type of the elements.</p>
+
+        <h3>Creating a Vector</h3>
+
+        <p>You can create a new vector using the <code>vec! macro</code> or the <code>Vec::new</code> method:</p>
+
+        <pre><code>let v: Vec<i32> = Vec::new(); // Creates an empty vector
+let v = vec![1, 2, 3]; // Creates a vector with initial values</code></pre>
+
+        <h3>Adding Elements</h3>
+
+        <p>You can add elements to a vector using the push method:</p>
+
+        <pre><code>let mut v = Vec::new();
+v.push(1);
+v.push(2);
+v.push(3);</code></pre>
+
+        <h3>Accessing Elements</h3>
+
+        <p>You can access elements in a vector using indexing or the get method:</p>
+
+        <pre><code>let v = vec![1, 2, 3];
+println!("First element: {}", v[0]); // Using indexing
+match v.get(1) {
+    Some(value) => println!("Second element: {}", value),
+    None => println!("No element found at index 1"),
+}</code></pre>
+
+        <h3>Iterating Over Elements</h3>
+
+        <p>You can iterate over the elements of a vector using a for loop:</p>
+
+        <pre><code>let v = vec![1, 2, 3];
+for i in &v {
+    println!("{}", i);
+}</code></pre>
+
+        <h2>Hash Maps</h2>
+
+        <p>Hash maps store a collection of key-value pairs. They are implemented as <code>HashMap&lt;K, V&gt;</code> where K is the type of the keys and V is the type of the values.</p>
+
+        <h3>Creating a Hash Map</h3>
+
+        <p>You can create a new hash map using the <code>HashMap::new</code> method:</p>
+
+        <pre><code>use std::collections::HashMap;
+
+let mut map = HashMap::new();</code></pre>
+
+        <h3>Adding Elements</h3>
+
+        <p>You can add elements to a hash map using the insert method:</p>
+
+
+        <pre><code>map.insert("key1", 10);
+map.insert("key2", 20);</code></pre>
+
+        <h3>Accessing Elements</h3>
+
+        <p>You can access elements in a hash map using the get method:</p>
+
+        <pre><code>match map.get("key1") {
+    Some(value) => println!("Value for key1: {}", value),
+    None => println!("No value found for key1"),
+}</code></pre>
+
+        <h3>Iterating Over Elements</h3>
+
+        <p>You can iterate over the key-value pairs in a hash map using a for loop:</p>
+
+        <pre><code>for (key, value) in &map {
+    println!("{}: {}", key, value);
+}</code></pre>
+
+        <h2>Hash Sets</h2>
+
+        <p>Hash sets store unique values and are implemented as <code>HashSet&lt;T&gt;</code> where T is the type of the elements.</p>
+
+        <h3>Creating a Hash Set</h3>
+
+        <p>You can create a new hash set using the <code>HashSet::new</code> method:</p>
+
+        <pre><code>use std::collections::HashSet;
+
+let mut set = HashSet::new();</code></pre>
+
+        <h3>Adding Elements</h3>
+
+        <p>You can add elements to a hash set using the insert method:</p>
+
+        <pre><code>set.insert(1);
+set.insert(2);
+set.insert(3);</code></pre>
+
+        <h3>Checking for Elements</h3>
+
+        <p>You can check if a value is in a hash set using the contains method:</p>
+
+        <pre><code>if set.contains(&1) {
+    println!("Set contains 1");
+} else {
+    println!("Set does not contain 1");
+}</code></pre>
+
+        <h3>Iterating Over Elements</h3>
+
+        <p>You can iterate over the elements in a hash set using a for loop:</p>
+
+        <pre><code>for value in &set {
+    println!("{}", value);
+}</code></pre>
+
+        <h2>Summary</h2>
+
+        <p>Rust provides several powerful collections, including vectors, hash maps, and hash sets. Vectors allow you to store a resizable array of values, hash maps store key-value pairs, and hash sets store unique values. By understanding and using these collections, you can effectively manage and manipulate groups of data in your Rust programs.</p>
+
+        <h3>Additional Resources</h3>
+
+        <p>For more detailed information, refer to the official Rust documentation:</p>
+
+        <ul>
+            <li><a href="https://doc.rust-lang.org/book/ch08-00-common-collections.html#common-collections" rel="noreferrer" target="_new">Rust Book - Collections</a></li>
+        </ul>
+      </section>
+
+      <section class="main-section" id="error_handling">
+        <header>Error Handling</header>
+        
+        <p>Rust's error handling is one of its key features, emphasizing safety and robustness. Rust uses two primary types for error handling: Result and Option. This tutorial will guide you through understanding and using these types effectively.</p>
+
+        <h2>Result Type</h2>
+
+        <p>The Result type is used for functions that can return an error. It is defined as:</p>
+
+        <pre><code>enum Result&lt;T, E&gt; {
+    Ok(T),
+    Err(E),
+}</code></pre>
+
+        <p>T is the type of the value returned in case of success.<br />
+           E is the type of the error returned in case of failure.</p>
+
+        <h3>Creating a Result</h3>
+
+        <p>Here's how you can create a Result:</p>
+
+        <pre><code>fn divide(a: f64, b: f64) -> Result&lt;f64, String&gt; {
+    if b == 0.0 {
+        Err(String::from("Cannot divide by zero"))
+    } else {
+        Ok(a / b)
+    }
+}</code></pre>
+
+        <h3>Handling a Result</h3>
+
+        <p>You can handle a Result using pattern matching:</p>
+
+        <pre><code>fn main() {
+    let result = divide(4.0, 2.0);
+    match result {
+        Ok(value) => println!("Result: {}", value),
+        Err(error) => println!("Error: {}", error),
+    }
+}</code></pre>
+
+        <p>Or using combinators like unwrap, expect, map, and and_then:</p>
+
+        <pre><code>fn main() {
+    let result = divide(4.0, 2.0).unwrap();
+    println!("Result: {}", result);
+    
+    let result = divide(4.0, 0.0).expect("Failed to divide");
+    println!("Result: {}", result);
+}</code></pre>
+
+        <h3>Propagating Errors</h3>
+
+        <p>You can propagate errors using the ? operator:</p>
+
+        <pre><code>fn divide(a: f64, b: f64) -> Result&lt;f64, String&gt; {
+    if b == 0.0 {
+        Err(String::from("Cannot divide by zero"))
+    } else {
+        Ok(a / b)
+    }
+}
+
+fn divide_two_numbers() -> Result<(), String> {
+    let result = divide(4.0, 2.0)?;
+    println!("Result: {}", result);
+    Ok(())
+}
+
+fn main() {
+    match divide_two_numbers() {
+        Ok(()) => println!("Division successful"),
+        Err(e) => println!("Error: {}", e),
+    }
+}</code></pre>
+
+        <h2>Option Type</h2>
+
+        <p>The Option type is used for values that may or may not be present. It is defined as:</p>
+
+        <pre><code>enum Option&lt;T&gt; {
+    Some(T),
+    None,
+}</code></pre>
+
+        <h3>Creating an Option</h3>
+
+        <p>Here's how you can create an Option:</p>
+
+        <pre><code>fn find_element(elements: &[i32], target: i32) -> Option&lt;usize&gt; {
+    for (index, &element) in elements.iter().enumerate() {
+        if element == target {
+            return Some(index);
+        }
+    }
+    None
+}</code></pre>
+
+        <h3>Handling an Option</h3>
+
+        <p>You can handle an Option using pattern matching:</p>
+
+        <pre><code>fn main() {
+    let elements = [1, 2, 3, 4, 5];
+    let result = find_element(&elements, 3);
+    match result {
+        Some(index) => println!("Found at index: {}", index),
+        None => println!("Not found"),
+    }
+}</code></pre>
+
+        <p>Or using combinators like unwrap, expect, map, and and_then:</p>
+
+        <pre><code>fn main() {
+    let elements = [1, 2, 3, 4, 5];
+    let result = find_element(&elements, 3).unwrap();
+    println!("Found at index: {}", result);
+    
+    let result = find_element(&elements, 6).expect("Element not found");
+    println!("Found at index: {}", result);
+}</code></pre>
+
+        <h2>Custom Error Types</h2>
+
+        <p>You can define your own error types using enums and implement the Error trait from the <code>std::error</code> module:</p>
+
+        <pre><code>use std::fmt;
+
+#[derive(Debug)]
+enum MyError {
+    DivisionByZero,
+    InvalidInput,
+}
+
+impl fmt::Display for MyError {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        match self {
+            MyError::DivisionByZero => write!(f, "Cannot divide by zero"),
+            MyError::InvalidInput => write!(f, "Invalid input"),
+        }
+    }
+}
+
+impl std::error::Error for MyError {}
+
+fn divide(a: f64, b: f64) -> Result&lt;f64, MyError&gt; {
+    if b == 0.0 {
+        Err(MyError::DivisionByZero)
+    } else {
+        Ok(a / b)
+    }
+}
+
+fn main() {
+    match divide(4.0, 0.0) {
+        Ok(value) => println!("Result: {}", value),
+        Err(e) => println!("Error: {}", e),
+    }
+}</code></pre>
+
+        <h2>Summary</h2>
+
+        <p>Rust's error handling system, built around the Result and Option types, provides a robust way to handle errors and optional values. By using pattern matching, combinators, and custom error types, you can write safe and readable code.</p>
+
+        <h3>Additional Resources</h3>
+        
+        <p>For more detailed information, refer to the official Rust documentation:</p>
+
+        <ul>
+            <li><a href="https://doc.rust-lang.org/book/ch09-00-error-handling.html" rel="noreferrer" target="_new">Rust Book - Error Handling</a></li>
+            <li><a href="https://doc.rust-lang.org/book/ch06-01-defining-an-enum.html#the-option-enum-and-its-advantages-over-null-values" rel="noreferrer" target="_new">Rust Book - Option</a></li>
+        </ul>
+      </section>
+      <section class="main-section" id="borrowing">
+        <header>Borrowing</header>
+        
+        <p>Borrowing is one of the core concepts in Rust's ownership system. It allows you to reference data without taking ownership, which helps in writing efficient and safe code. This tutorial will guide you through the basics of borrowing, mutable and immutable references, and borrowing rules.</p>
+
+        <h2>Understanding Ownership</h2>
+
+        <p>Before diving into borrowing, let's briefly review ownership. In Rust, each value has a single owner, and when the owner goes out of scope, the value is dropped. This ensures memory safety and prevents issues like double-free errors.</p>
+
+        <h2>Borrowing and References</h2>
+
+        <p>Borrowing allows you to refer to a value without taking ownership. You can create references to a value, which are essentially pointers to the value. There are two types of references: immutable and mutable.</p>
+
+        <h3>Immutable References</h3>
+
+        <p>An immutable reference allows you to read data without modifying it. You can create an immutable reference using the & operator:</p>
+
+        <pre><code>fn main() {
+    let s = String::from("hello");
+    let len = calculate_length(&s);
+    println!("The length of '{}' is {}.", s, len);
+}
+
+fn calculate_length(s: &String) -> usize {
+    s.len()
+}</code></pre>
+
+        <p>In the example above, calculate_length borrows s without taking ownership. The reference &s allows the function to read the value but not modify it.</p>
+
+        <h3>Mutable References</h3>
+
+        <p>A mutable reference allows you to modify the data. You can create a mutable reference using the &mut operator:</p>
+
+        <pre><code>fn main() {
+    let mut s = String::from("hello");
+    change(&mut s);
+    println!("The modified string is '{}'.", s);
+}
+
+fn change(s: &mut String) {
+    s.push_str(", world");
+}</code></pre>
+
+        <p>In the example above, change borrows s mutably, allowing it to modify the string. The reference &mut s grants the function permission to alter the data.</p>
+
+        <h2>Borrowing Rules</h2>
+
+        <p>Rust enforces strict borrowing rules to ensure memory safety:</p>
+
+        <p>You can have either one mutable reference or any number of immutable references, but not both at the same time.
+References must always be valid.</p>
+
+        <p>These rules prevent data races and ensure that references are safe to use.</p>
+
+        <h3>Example of Borrowing Rules</h3>
+
+        <p>Here’s an example demonstrating the borrowing rules:</p>
+
+        <pre><code>fn main() {
+    let mut s = String::from("hello");
+
+    // Immutable references
+    let r1 = &s;
+    let r2 = &s;
+    println!("{} and {}", r1, r2);
+
+    // Mutable reference
+    let r3 = &mut s;
+    r3.push_str(", world");
+    println!("{}", r3);
+
+    // The following line would cause an error
+    // println!("{} and {}", r1, r2);
+}</code></pre>
+
+        <p>In the example above, r1 and r2 are immutable references and can coexist. However, creating a mutable reference r3 is only allowed after the immutable references are no longer used. Attempting to use r1 and r2 after r3 would result in a compile-time error.</p>
+
+        <h2>Dangling References</h2>
+
+        <p>Rust prevents dangling references by ensuring that references are always valid. A dangling reference occurs when a reference points to memory that has been freed.</p>
+
+        <pre><code>fn main() {
+    let reference_to_nothing = dangle();
+}
+
+// This function would cause a compile-time error
+fn dangle() -> &String {
+    let s = String::from("hello");
+    &s
+} // `s` goes out of scope and is dropped here, leaving a dangling reference</code></pre>
+
+        <p>In the example above, the function dangle attempts to return a reference to a value that goes out of scope. Rust catches this at compile time and prevents the code from compiling.</p>
+
+        <h2>Summary</h2>
+
+        <p>Borrowing in Rust is a powerful feature that ensures memory safety and efficiency. By understanding and following the borrowing rules, you can write robust and error-free code. Here are the key takeaways:</p>
+        <ol>
+            <li>Immutable references allow reading data without modifying it.</li>
+            <li>Mutable references allow modifying data.</li>
+            <li>You can have either one mutable reference or any number of immutable references, but not both at the same time.</li>
+            <li>Rust prevents dangling references by ensuring that references are always valid.</li>
+        </ol>
+
+        <h3>Additional Resources</h3>
+
+        <p>For more detailed information, refer to the official Rust documentation:</p>
+        <ul>
+            <li><a href="https://doc.rust-lang.org/book/ch04-00-understanding-ownership.html" rel="noreferrer" target="_new">Rust Book - Ownership, References and Borrowing</a></li>
+        </ul>
+      </section>
+    </main> 
+  </body>
+</html>
