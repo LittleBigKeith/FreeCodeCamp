@@ -32,6 +32,17 @@ a {
   text-decoration: none;
 }
 
+span > a:hover, li > a:hover {
+  background-color: #CCEAFE
+}
+
+#ferris {
+  content: url(https://www.rustacean.net/assets/rustacean-flat-noshadow.svg);
+}
+#ferris:hover {
+  content: url(https://www.rustacean.net/assets/rustacean-flat-gesture.svg);
+}
+
 #container {
   display: flex;
   align-items: flex-start;
