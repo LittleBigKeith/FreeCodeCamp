@@ -15,8 +15,9 @@ body {
 }
 
 pre {
-  width: calc(100% - max(33%, 240px));
+  width: calc(100% - 60px);
   overflow: scroll;
+  margin-left: 30px;
 }
 
 ul li {
@@ -280,8 +281,3 @@ a {
     top: 210px;
   }
 }
-
-
-
-
-
