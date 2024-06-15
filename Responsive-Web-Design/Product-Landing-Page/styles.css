@@ -3,8 +3,9 @@
   margin: 0;
 }
 
-html {
+html, body {
   overflow-x: hidden;
+  height: 100%;
 }
 
 #nav-bar-wrapper {
