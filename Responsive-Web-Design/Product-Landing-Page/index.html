@@ -10,6 +10,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Carme&display=swap" rel="stylesheet">
+    <link 
+        rel="stylesheet" href= 
+"https://fonts.googleapis.com/icon?family=Material+Icons"> 
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+    />
     <title>Test Drive Unlimited - Solar Crown</title>
   </head>
   <body>
@@ -81,6 +88,7 @@
           <div id="clans-inner">
             <div id="sharps">
               <img class="img-left" src="https://www.testdriveunlimited.com/_nuxt/img/Sharps_Room01_Mobile.1322a45.jpg" alt="car of sharps can" loading="lazy">
+              <h1 class="clan-title">Sharps</h1>
               <p>
                 The Sharps consider themselves an elite class and are characterised by a distinct 
                 <strong>love of sophistication and classic luxury.</strong>
@@ -90,6 +98,7 @@
             </div>
             <div id="streets">
               <img class="img-right" src="https://www.testdriveunlimited.com/_nuxt/img/Streets_Room01_Mobile.5df1589.jpg" alt="car of streets can" loading="lazy">
+              <h1 class="clan-title">Streets</h1>
               <p>
                 The Streets do not want to blend in with the crowd and are certainly not shy about proving it. For them, 
                 <strong>success is synonymous with making an impression and going against the grain.</strong>
@@ -101,13 +110,33 @@
         </section>
       </div>
       <div id="sign-up-wrapper">
-      <section id="sign-up" class="section-odd">
+      <section id="sign-up">
         <form id="form" action="https://www.freecodecamp.com/email-submit">
           <h1>Sign up for newsletter</h1>
-          <label id="email-label" for="email">Email:</label>
-          <input id="email" name="email" type="email" placeholder="example@domain.com" aria-labelledby="email-label">
-          <input type="submit" id="submit" value="Send">
+          <ul>
+            <li>Exclusive benefits</li>
+            <li>All competition details</li>
+            <li>Exclusive service offered by Solar Crown</li>
+          </ul>
+          <div id="email-field">
+            <label id="email-label" for="email">Email:</label>
+            <input id="email" name="email" type="email" placeholder="example@domain.com" aria-labelledby="email-label">
+            <input type="submit" id="submit" value="Subscribe">
+          </div>
         </form>
+        <div id="social-icons">
+          <a href="https://store.steampowered.com/app/1249970/Test_Drive_Unlimited_Solar_Crown/">
+            <i class="fab fa-steam"></i></a>
+          <a href="https://x.com/testdrive">
+            <i class="fab fa-twitter"></i></a>
+          <a href="https://www.discord.gg/testdrive">
+            <i class="fab fa-discord"></i></a>
+          <a href="https://www.facebook.com/tdusc">
+            <i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.youtube.com/watch?v=whwba2H7nNc&ab_channel=Nacon">
+            <i class="fab fa-youtube"></i>
+          </a>
+        </div>
       </section>
       </div>
     </main>

@@ -37,6 +37,7 @@ html, body {
   grid-auto-flow: column;
   gap: 0;
   background: linear-gradient(black 80%, linen 100%);
+  z-index: 99;
 }
 
 #header-img-span {
@@ -101,6 +102,7 @@ body:before {
   z-index: -1;
 }
 
+
 h1 {
   font-family: "Racing Sans One", sans-serif;
   margin-bottom: 1rem;
@@ -109,6 +111,17 @@ h1 {
 p {
   font-family: "Carme", sans-serif;
   text-align: justify;
+}
+
+li {
+  font-family: "Carme", sans-serif;
+  list-style: none;
+  font-size: 24px;
+}
+
+li:before {
+  content: 'rocket_launch'; 
+  font-family: 'Material Icons'; 
 }
 
 section {
@@ -141,7 +154,7 @@ section {
 }
 
 #clans p {
-  margin: 1rem 2rem;
+  margin: -2rem 3.2rem 2rem;
 }
 
 #clans-inner {
@@ -151,6 +164,21 @@ section {
   flex-flow: row;
   justify-content: center;
   align-items: center;
+}
+
+#clans-wrapper {
+  background: linear-gradient(90deg, #00000033, #000033 40%, #F9920833 50%, #f9920833);
+  box-shadow: 0 0 100px #00000033;
+}
+
+.clan-title {
+  position: relative;
+  top: max(-36vw, -400px);
+  color: white;
+  z-index: 1;
+  text-transform: uppercase;
+  font-size:32px;
+  letter-spacing: 3px;
 }
 
 #sharps, #streets {
@@ -197,12 +225,55 @@ section img {
 
 #sign-up-wrapper {
   background: url(https://www.testdriveunlimited.com/_nuxt/img/sharps_Solar_Hotel.2342470.jpg);
+  background-repeat: no-repeat;
   background-size: cover;
+  height: 100%;
 }
 
-#clans-wrapper {
-  background: linear-gradient(90deg, #00000033, #000033 40%, #F9920833 50%, #f9920833);
-  box-shadow: 0 0 100px #00000033;
+#sign-up {
+  flex-direction: column;
+}
+
+#sign-up h1, #email-field {
+  text-align: center;
+}
+
+#email-field {
+  margin: 1.5rem;
+}
+
+#sign-up label, #sign-up input {
+  display: block;
+  margin: 0.5rem auto;
+  font-family: "Racing Sans One", sans-serif;
+  font-size: 24px;
+}
+
+#sign-up #submit {
+  padding: 1rem;
+  margin-top: 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  background: linear-gradient(60deg, #c0c0c0, #ffffff 50%, #c0c0c0);
+}
+
+#sign-up #submit:hover {
+  background: linear-gradient(60deg, #606060, #aaaaaa 50%, #606060);
+  color: white;
+}
+
+#social-icons {
+  width: 100%;
+  text-align: center;
+  color: black;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  font-size: 24px;
+}
+
+#social-icons a {
+  color: #606060;
 }
 
 @media only screen and (max-width: 800px){
@@ -214,6 +285,7 @@ section img {
 
   section {
     padding: 2rem;
+    gap: 1rem;
   }
 
   .section-odd, .section-even {
@@ -233,15 +305,34 @@ section img {
   }
 
   #clans-inner {
-    flex-flow: row;
+    grid-template-columns: 1fr;
   }
 
-  @media only screen and (max-width: 1120px) {
+  #clans-inner img {
+    width: 50%;
+    min-width: 50%;
+    max-width: 50%;
+    margin-top: 2rem;
+  }
+
+  h1, p {
+    margin: 0.8rem 2rem;
+  }
+
+  #clans-wrapper {
+    background: linear-gradient(#000000BB, #000000BB 50%, #F99208BB 60%, #F99208BB);
+  }
+
+  .clan-title {
+    top: -75vw;
+  }
+}
+
+@media only screen and (max-width: 1120px) {
     #nav-bar {
       padding: 20px;
     }
   }
-}
 
 
 
