@@ -1,0 +1,246 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+#nav-bar-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#header {
+ display: unset;
+ height: auto;
+}
+
+#header-img-span {
+  background-color: #111111;
+}
+
+#nav-bar-wrapper {
+  justify-content: center;
+}
+
+#nav-bar {
+  position: sticky;
+  height: auto;
+  top: 0;
+  padding: 20px;
+  display: grid;
+  grid-auto-flow: column;
+  gap: 0;
+  background: linear-gradient(black 80%, linen 100%);
+}
+
+#header-img-span {
+  margin: 2rem;
+}
+
+#nav-link-span {
+  margin: 0 1rem;
+}
+
+#nav-bar .nav-link {
+  display: inline;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: Tahoma;
+  padding: 1.2rem;
+  align-items: center;
+  background: linear-gradient(45deg, black, orange 30%, orange 70%, black 100%);
+  font-weight: 800;
+  text-align: center;
+  color: #123456;
+  white-space: nowrap;
+  border-radius: 10px;
+  margin: 5px 10px;
+  box-shadow: 0 0 10px orange;
+}
+
+#nav-bar .nav-link:hover {
+  background: linear-gradient(45deg, black,#F99208 30%, #F99208 70%, black 100%);
+}
+
+#nav-bar .nav-link:nth-child(2n-1):last-child {    
+  grid-column: 1 /-1;
+}
+#header-img {
+  margin-right: 0.8rem;
+}
+
+.img-right {
+  border-radius: 4% 20% 4% 20%;
+}
+
+.img-left {
+  border-radius: 20% 4% 20% 4%;
+}
+
+.iframe-right {
+border-radius: 4% 20% 4% 10%;
+}
+
+body {
+  position: relative;
+}
+
+body:before {
+  content: "";
+  position: absolute;
+  background: url(https://www.testdriveunlimited.com/_nuxt/img/Homepage_BG_mobile.1fd0992.jpg);
+  width: 200%;
+  height: 100%;
+  transform: translate(10px, 0) rotate(3deg);
+  z-index: -1;
+}
+
+h1 {
+  font-family: "Racing Sans One", sans-serif;
+  margin-bottom: 1rem;
+}
+
+p {
+  font-family: "Carme", sans-serif;
+  text-align: justify;
+}
+
+section {
+  padding: 4rem;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  background-color: #fffa;
+  max-width: 1200px;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 30px linen;
+}
+
+.section-odd {
+  flex-flow: row;
+}
+
+.section-even {
+  flex-flow: row-reverse;
+}
+
+#clans {
+  flex-flow: column;
+}
+
+#clans img {
+  margin: 0 1rem 1rem;
+}
+
+#clans p {
+  margin: 1rem 2rem;
+}
+
+#clans-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  flex-wrap: wrap;
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#sharps, #streets {
+  text-align: center;
+}
+
+section img {
+  width: 50%;
+  max-width: 50%;
+  min-width: 50%;
+  object-fit: contain;
+  box-shadow: 0 0 20px #111111;
+}
+
+#video {
+  width: 50%;
+  max-width: 50%;
+  min-width: 50%;
+  aspect-ratio: 16/9;
+  box-shadow: 0 0 20px #111111;
+}
+
+#video-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+#trailer-wrapper {
+  background-color: #FFFF0033;
+  box-shadow: 0 0 100px #FFFF0055;
+}
+
+#hong-kong-wrapper {
+  background-color: #00FFFF33;
+  box-shadow: 0 0 100px #00FFFF55;
+}
+
+#solar-hotel-wrapper {
+  background-color:
+  #A020F033;
+  box-shadow: 0 0 100px #A020F055;
+}
+
+#sign-up-wrapper {
+  background: url(https://www.testdriveunlimited.com/_nuxt/img/sharps_Solar_Hotel.2342470.jpg);
+  background-size: cover;
+}
+
+#clans-wrapper {
+  background: linear-gradient(90deg, #00000033, #000033 40%, #F9920833 50%, #f9920833);
+  box-shadow: 0 0 100px #00000033;
+}
+
+@media only screen and (max-width: 800px){
+  #nav-bar #nav-link-span {
+    margin-top: -0.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  section {
+    padding: 2rem;
+  }
+
+  .section-odd, .section-even {
+    flex-flow: column;
+  }
+
+  section img {
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+}
+
+  #video {
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+  }
+
+  #clans-inner {
+    flex-flow: row;
+  }
+
+  @media only screen and (max-width: 1120px) {
+    #nav-bar {
+      padding: 20px;
+    }
+  }
+}
+
+
+
