@@ -135,6 +135,7 @@ section {
   justify-content: center;
   align-items: center;
   box-shadow: 0 0 30px linen;
+  scroll-margin-top: 9em;
 }
 
 .section-odd {
@@ -262,6 +263,15 @@ section img {
   color: white;
 }
 
+#sign-up input[type="checkbox"] {
+  display: inline-block;
+  margin-right: 0.4rem;
+}
+
+#sign-up  #subscribe-label {
+  font-size: 16px;
+}
+
 #social-icons {
   width: 100%;
   text-align: center;
@@ -276,6 +286,13 @@ section img {
   color: #606060;
 }
 
+@media only screen and (max-width: 1100px) {
+  section {
+    scroll-margin-top: 10em;
+  }
+ }
+
+
 @media only screen and (max-width: 800px){
   #nav-bar #nav-link-span {
     margin-top: -0.5rem;
@@ -286,6 +303,7 @@ section img {
   section {
     padding: 2rem;
     gap: 1rem;
+    scroll-margin-top: 15em;
   }
 
   .section-odd, .section-even {
@@ -328,11 +346,14 @@ section img {
   }
 }
 
-@media only screen and (max-width: 1120px) {
-    #nav-bar {
-      padding: 20px;
-    }
+@media only screen and (max-width: 743px){
+  section {
+     scroll-margin-top: 21em;
   }
+}
 
-
-
+@media (prefers-reduced-motion: no-preference) {
+  * {
+    scroll-behavior: smooth;
+  }
+}
