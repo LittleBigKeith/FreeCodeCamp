@@ -21,6 +21,10 @@ figcaption {
   margin: 10px auto;
 }
 
+h1 > a , h2, figcaption, address, address > a {
+  color: #FFBF00;
+}
+
 address {
   margin: 30px auto;
 }
@@ -47,10 +51,6 @@ ul > li {
   box-shadow: 0 0 100px black;
 }
 
-a {
-  color: #EEEEEE;
-}
-
 a:hover, a:active {
   color: #DDDD33;
 }
@@ -70,4 +70,14 @@ a:hover, a:active {
 
 #tribute-info > span {
   padding: 1rem;
+}
+
+.year:nth-child(2n + 1 of .year),
+.event:nth-child(2n + 1 of .event){
+  color: #FFDDDD;
+}
+
+.year:nth-child(2n of .year),
+.event:nth-child(2n of .event){
+  color: #DDFFDD;
 }
