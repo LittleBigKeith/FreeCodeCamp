@@ -230,6 +230,8 @@ a {
 
 @media (max-width: 668px) {
   .main-section > header {
+    font-size: 30px;
+    padding: 18px 15px;
     top: 134px;
   }
 }
@@ -260,24 +262,32 @@ a {
 
 @media (max-width: 448px) {
    .main-section > header {
+    font-size: 24px;
+    padding: 15px 15px;
     top: 153px;
   }
 }
 
 @media (max-width: 273px) {
    .main-section > header {
+    font-size: 16px;
+    padding: 10px 15px;
     top: 173px;
   }
 }
 
 @media (max-width: 265px) {
    .main-section > header {
+    font-size: 16px;
+    padding: 10px 15px;
     top: 191px;
   }
 }
 
 @media (max-width: 246px) {
    .main-section > header {
+    font-size: 16px;
+    padding: 10px 15px;
     top: 210px;
   }
 }
