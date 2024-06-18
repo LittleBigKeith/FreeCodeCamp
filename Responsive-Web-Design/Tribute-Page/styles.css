@@ -49,6 +49,7 @@ ul > li {
   height: auto;
   max-width: 100%;
   box-shadow: 0 0 100px black;
+  border-radius: 45%;
 }
 
 a:hover, a:active {
