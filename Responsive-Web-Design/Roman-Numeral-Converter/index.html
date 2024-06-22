@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device.width, initial-scale=1.0">
+    <title>My Roman Numeral Converter</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quattrocento:wght@400;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="converter">
+      <h1>Roman Numeral Converter</h1>
+      <h3>Enter a number:</h3>
+      <input type="number" id="number">
+      <button type="button" id="convert-btn" onclick="convertBtnClicked()">Convert</button>
+      <p id="output">I </p>
+    </div>
+    <div id="legend">
+      <table>
+        <tr>
+          <th rowspan="0">
+          Legend
+          </th>
+        </tr>
+        <tr>
+          <td>I</td>
+          <td>IV</td>
+          <td>V</td>
+          <td>IX</td>
+          <td>X</td>
+          <td>XL</td>
+          <td>L</td>
+          <td>XC</td>
+          <td>C</td>
+          <td>CD</td>
+          <td>D</td>
+          <td>CM</td>
+          <td>M</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>4</td>
+          <td>5</td>
+          <td>9</td>
+          <td>10</td>
+          <td>40</td>
+          <td>50</td>
+          <td>90</td>
+          <td>100</td>
+          <td>400</td>
+          <td>500</td>
+          <td>900</td>
+          <td>1000</td>
+        </tr>
+      </table>
+    </div>
+    <div id="clock">
+      <ul>
+        <li>I</li>
+        <li>II</li>
+        <li>III</li>
+        <li>IV</li>
+        <li>V</li>
+        <li>VI</li>
+        <li>VII</li>
+        <li>VIII</li>
+        <li>IX</li>
+        <li>X</li>
+        <li>XI</li>
+        <li>XII</li>
+      </ul>
+      <div id="hour-hand">
+      </div>
+      <div id="minute-hand">
+      </div>
+      <div id="origin">
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

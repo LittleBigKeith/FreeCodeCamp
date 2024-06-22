@@ -1,0 +1,195 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Quattrocento", serif;
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  html {
+      background-color: black;
+      color: white;
+  }
+  
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #converter {
+      text-align: center;
+      position: relative;
+      background-color: #EEEEEE55;
+      border-radius: 10px;
+      top: -18px;
+  }
+  
+  #converter * {
+      margin: 1rem;
+  }
+  
+  #converter input {
+      line-height: 2em;
+      border-radius: 10px;
+      background-color: #333333;
+      color: white;
+      text-align: center;
+      letter-spacing: 0.6px;
+      font-size: 1em;
+  }
+  
+  #converter button {
+      background-color: lightgray;
+      padding: 0.6em;
+      border-radius: 10px;
+      font-size: 1em;
+  }
+  
+  #output {
+      visibility: hidden;
+      height: 3rem;
+  }
+  
+  #clock {
+    position: absolute;
+    width: min(80vh, 80vw);
+    height: min(80vh, 80vw);
+    margin: auto auto;
+    z-index: -1;
+    opacity: 40%;
+    font-size: 1.2em;
+    top: 1em;
+  }
+  
+  #legend {
+      position: absolute;
+      bottom: 1.2em;
+      background-color: darkgreen;
+      height: 50px;
+      border-radius: 10px;
+  }
+  
+  #legend table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+  #legend th, td {
+    padding: 5px;
+    width: 2.5rem;
+    text-align: center;
+  }
+  
+  #clock ul {
+    list-style: none;
+  }
+  
+  #clock ul li {
+    position: absolute;
+  }
+  
+  #clock ul li:nth-child(1){
+      right: 22%;
+      top:6.5%;
+  }
+  #clock ul li:nth-child(2){
+      right: 4.5%;
+      top:25%;
+  }
+  #clock ul li:nth-child(3){
+      right: 0%;
+      top:calc(48% - 10px);
+      font-size: 1.5em;
+      font-weight: bold;
+  }
+  #clock ul li:nth-child(4){
+      right: 4.5%;
+      top:69%;
+  }
+  #clock ul li:nth-child(5){
+      right: 22%;
+      top:88%;
+  }
+  #clock ul li:nth-child(6){
+      right: calc(50% - 25px);
+      top:calc(99% - 20px);
+      font-size: 1.5em;
+      font-weight: bold;
+  }
+  #clock ul li:nth-child(7){
+      left: 22%;
+      top:88%;
+  }
+  #clock ul li:nth-child(8){
+      left: 4.5%;
+      top:69%;
+  }
+  #clock ul li:nth-child(9){
+      left: 0%;
+      top:calc(48% - 10px);
+      font-size: 1.5em;
+      font-weight: bold;
+  }
+  #clock ul li:nth-child(10){
+      left: 4.5%;
+      top:25%;
+  }
+  #clock ul li:nth-child(11){
+      left: 22%;
+      top:6.5%;
+  }
+  #clock ul li:nth-child(12){
+      right: calc(50% - 25px);
+      top:0%;
+      font-size: 1.5em;
+      font-weight: bold;
+  }
+  
+  #clock #hour-hand {
+      width: min(2vh, 2vw);
+      height: min(15vh, 15vw);
+      background-color: #fff;
+      transform-origin: bottom center;
+      border-radius: 4px;
+      position: absolute;
+      top: min(25vh, 25vw);
+      left: min(39.5vh, 39.5vw);
+      transform: none;
+      z-index: 2;
+  }
+  
+  #clock #minute-hand {
+      width: min(1vh, 1vw);
+      height: min(30vh, 30vw);
+      background-color: #fff;
+      transform-origin: bottom center;
+      border-radius: 4px;
+      position: absolute;
+      top: min(10vh, 10vw);
+      left: min(40vh, 40vw);
+      transform: none;
+      z-index: 1
+  }
+  
+  #clock #origin {
+      height: min(3vw, 3vh);
+      width: min(3vw, 3vh);
+      position: absolute;
+      top: min(38.5vh, 38.5vw);
+      left: min(39vh, 39vw);         
+  border-radius: 50%;    background-color: #fff;
+  z-index: 3;
+  }
+  
+  @media only screen and (max-width: 600px) {
+      #legend {
+          display: none;
+      }
+  }
+  
+  @media only screen and (max-height: 500px) {
+      #legend {
+          display: none;
+      }
+  }
