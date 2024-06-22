@@ -43,7 +43,7 @@ const cleanString = (str) => {
 const checkPalindrome = () => {
     const input = textInput.value;
     const cleanedStr = cleanString(input);
-
+    textInput.value = ""
     result.style.visibility = "visible";
 
     if (isEmptyString(cleanedStr)) {
@@ -74,6 +74,7 @@ const checkPalindrome = () => {
         body.style.animation = "red 1s forwards";
         result.style.color = "#B00000";
     }
+    textInput.textContent = "";
 }
 
 const resetPalindrome = () => {
