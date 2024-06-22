@@ -44,23 +44,26 @@ const doConversion = (romanNumber) => {
   .replaceAll("I".repeat(4), "IV");
 }
 
-const setDate = () => {
-    const date = new Date();
-    const hour = date.getHours();
-    const minute = date.getMinutes();
-    const second = date.getSeconds();
+window.onload = () => {
+  const setDate = () => {
+      const date = new Date();
+      const hour = date.getHours();
+      const minute = date.getMinutes();
+      const second = date.getSeconds();
+      
+      const hourDeg = (hour / 12) * 360 + (minute / 60) * 30;
+      const minuteDeg = (minute / 60) * 360 + (second / 60) * 6; 
+      
+      hourHand.style.transform = `rotate(${hourDeg}deg)`;
+      minuteHand.style.transform = `rotate(${minuteDeg}deg)`;
+      console.log(hourHand);
+  }
+  setDate();
+  setInterval(setDate, 1000);
     
-    const hourDeg = (hour / 12) * 360 + (minute / 60) * 30;
-    const minuteDeg = (minute / 60) * 360 + (second / 60) * 6; 
-    
-    hourHand.style.transform = `rotate(${hourDeg}deg)`;
-    minuteHand.style.transform = `rotate(${minuteDeg}deg)`;
-    console.log(hourHand);
+  numberInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        convertBtnClicked();
+      }
+  });
 }
-setInterval(setDate, 1000);
-  
-numberInput.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') {
-      convertBtnClicked();
-    }
-});
