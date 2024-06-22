@@ -84,3 +84,9 @@ const resetPalindrome = () => {
     mouth.classList.add("neutral");
     body.style.animation = "yellow 1s forwards";
 }
+
+textInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+      checkPalindrome();
+    }
+});
