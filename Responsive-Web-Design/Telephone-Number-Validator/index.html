@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head lang="en">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telephone Number Validator</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap" rel="stylesheet">
+  </head>
+  <body id="body">
+    <h1>Phone Number Validator</h1>
+    <div id="phone-interface">
+        <div id="keypad-div">
+            <div id="display-div">
+                <p id="user-input-p"></p>
+                <input id="user-input">
+            </div>
+            <div id="call-div">
+                <div id="results-div"></div>
+            </div>
+            <div id="history-div">
+                <div id="history-container">
+                </div>
+                <button id="clear-history-button" onclick="clearHistory()">Clear History</button>
+            </div>
+            <div id="button-div">
+                <div class="action-buttons">
+                    <button id="check-btn" class="action-button" onclick="onCall()">Call</button>
+                    <button id="clear-btn" class="action-button" onclick="onClear()">Clear</button>
+                </div>
+                <div class="input-buttons symbol-buttons">
+                    <button id="space-btn" class="symbol-button">Space</button>
+                    <button id="dash-btn" class="symbol-button">-</button>
+                    <button id="left-paren-btn" class="symbol-button">(</button>
+                    <button id="right-paren-btn" class="symbol-button">)</button>
+                </div>
+                <div class="input-buttons number-buttons">
+                    <button id="b1" class="number-button">1</button>
+                    <button id="b2" class="number-button">2</button>
+                    <button id="b3" class="number-button">3</button>
+                </div>
+                <div class="input-buttons number-buttons">
+                    <button id="b4" class="number-button">4</button>
+                    <button id="b5" class="number-button">5</button>
+                    <button id="b6" class="number-button">6</button>
+                </div>
+                <div class="input-buttons number-buttons">
+                    <button id="b7" class="number-button">7</button>
+                    <button id="b8" class="number-button">8</button>
+                    <button id="b9" class="number-button">9</button>
+                </div>
+                <div class="input-buttons number-buttons">
+                    <button id="b0">0</button>
+                </div>
+            </div>
+            <div id="tab-div">
+                <button id="keypad-button" class="active-tab" onclick="onClickKeypadTab()">Keypad</button>
+                <button id="history-button" onclick="onClickHistoryTab()">History</button>
+            </div>
+        </div>
+        
+
+        
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

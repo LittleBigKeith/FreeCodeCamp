@@ -1,0 +1,177 @@
+* {
+    box-sizing: border-box;  
+    margin: 0;
+    padding: 0;
+    font-family: "Play", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(azure, #AACCEE);
+}
+
+h1 {
+    text-align: center;
+    margin: 1em;
+}
+
+#phone-interface {
+    margin: auto auto;
+    padding: 10px;
+    background-color: black;
+    border-radius: 25px;
+    aspect-ratio: 9 / 16;
+    min-width: 300px;
+    width: 60vw;
+    max-width: 500px;
+}
+
+#keypad-div, #call-div, #history-div {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: darkslategray;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+#call-div {
+    font-size: 24px;
+    color: honeydew;
+    padding: 0;
+}
+
+#keypad-div #display-div #user-input-p {
+    height: min(10vh, 10vw);
+    min-height: min(10vh, 10vw);
+    font-size: max(min(6vh, 6vw), 24px);
+    overflow-wrap: break-word;
+    text-align: center;
+}
+
+#display-div, #history-div {
+    color: honeydew;
+}
+
+#display-div {
+    height: 30%;
+    overflow: auto;
+}
+
+#keypad-div #user-input {
+    display: none;
+}
+
+button {
+    border: none;
+    border-radius: 10px;
+    background-color: honeydew;
+    color: darkgreen;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 10px;
+    opacity: 0.85;
+    transition: 0.2s;
+}
+
+#keypad-div 
+#button-div {
+    height: 50%;
+}
+
+#button-div .action-buttons,.symbol-buttons {
+    margin: 3px auto;
+    display: flex;
+    height: 16.6%;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    column-gap: 3px;
+}
+
+#button-div .number-buttons {
+    display:grid;
+    height: 16.6%;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 3px;
+    margin: 3px auto;
+}
+
+#button-div .number-buttons button {
+    width: 100%;
+}
+
+#button-div div button, #button-div div button::before, #button-div div button::after {
+    width: 100px;
+    flex: 1;
+}
+
+#button-div .number-buttons:last-of-type::before, #button-div .number-buttons:last-of-type::after {
+    display: block;
+    content:"";
+}
+
+#user-input-p .whitespace {
+    background-color: bisque;
+}
+
+#tab-div {
+    display: flex;
+    column-gap: 3px;
+}
+
+#tab-div button {
+    flex: 1;
+}
+
+#history-container {
+    height: 50vh;
+    overflow: auto;
+}
+
+#results-div {
+    margin: auto auto;
+}
+
+#history-container button {
+    display: inline-block;
+    background-color: #CCCCFF;
+    padding: 0;
+    margin: 6px;
+    border-radius: 50%;
+    aspect-ratio: 1 / 1;
+    width: 24px;
+    text-align: center;
+    justify-content: end;
+}
+
+button:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+#check-btn {
+    background-color: #CCCCFF;
+}
+
+#clear-btn {
+    background-color: #FFCCCC;
+}
+
+#tab-div .active-tab {
+    background-color: gold;
+}
+
+#tab-div button:not(.active-tab) {
+    background-color: #EEEEEE;
+}
+
+#clear-history-button {
+    background-color: #FFCCCC;
+}
