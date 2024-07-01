@@ -11,8 +11,11 @@ body {
     display: flex;
     flex-direction: column;
     width: 100vw;
-    height: 100vh;
-    background: linear-gradient(azure, #AACCEE);
+    height: auto;
+    background: linear-gradient(azure, #AACCEE);  ;
+    background-size: cover;
+background-repeat: no-repeat;
+
 }
 
 h1 {
