@@ -1,6 +1,6 @@
 let cid = [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100]];
 
-const price = 8.52;
+const price = 1.73;
 let values= {
   "PENNY": 0.01,
   "NICKEL": 0.05,
@@ -53,22 +53,23 @@ const purchase = () => {
   }
   const totalChangeAvailable = parseFloat(cid.reduce((acc, el) => acc + el[1], 0));
   let changeValue = parseFloat(cashValue - price);
-  if (changeValue > totalChangeAvailable + 0.005) {
+  let cid_update = [];
+  let changeArr = [];
+  for (let change of cid.slice(0).reverse()) {
+    const thisChange = parseFloat(Math.min(Math.floor(changeValue / values[change[0]]) * values[change[0]], change[1])).toFixed(2);
+    changeValue = parseFloat(changeValue - thisChange).toFixed(2);
+    cid_update.unshift(thisChange);
+    if (thisChange > 0) {
+      changeArr.push(`${change[0]}: $${thisChange}`);
+    }
+  }
+  if (parseFloat(changeValue) > 0) {
     changeDue.textContent = "Status: INSUFFICIENT_FUNDS";
     changeDiv.textContent = "N/A";
     return;
   }
-
-  let changeArr = [];
-  let i = 1;
-  for (let change of cid.slice(0).reverse()) {
-    const thisChange = parseFloat(Math.min(Math.floor(changeValue / values[change[0]]) * values[change[0]], change[1])).toFixed(2);
-    changeValue = parseFloat(changeValue - thisChange).toFixed(2);
-    if (thisChange > 0) {
-      cid[cid.length - i][1] = parseFloat(cid[cid.length - i][1] - thisChange);
-      changeArr.push(`${change[0]}: $${thisChange}`);
-    }
-    i += 1;
+  for (let i = 0; i < cid.length; i++) {
+    cid[i][1] -= cid_update[i];
   }
   if (totalChangeAvailable.toFixed(2) === parseFloat(cashValue - price).toFixed(2)) {
     changeDue.innerHTML = `<p>Status: CLOSED</p> <p>${changeArr.join("</p> <p>")}</p>`
