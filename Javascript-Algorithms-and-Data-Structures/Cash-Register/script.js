@@ -1,6 +1,6 @@
 let cid = [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100]];
 
-const price = 1.73;
+let price = 0;
 let values= {
   "PENNY": 0.01,
   "NICKEL": 0.05,
@@ -17,6 +17,8 @@ const cashDiv = document.getElementById("cash");
 const priceDiv = document.getElementById("price");
 const changeDiv = document.getElementById("change");
 const changeDue = document.getElementById("change-due");
+const changeRemaining = document.getElementById("change-remaining");
+const maxCash = document.getElementById("max-cash");
 
 const hundredQuantity = document.getElementById("hundred-quantity");
 const hundredAmount = document.getElementById("hundred-amount");
@@ -39,8 +41,8 @@ const pennyAmount = document.getElementById("penny-amount");
 
 const purchase = () => {
   const cashValue = Number(cashDiv.value);
-  if (isNaN(cashValue)) {
-    alert("Please input a valid number.");
+  if (!cashDiv.value || isNaN(cashValue)) {
+    alert("Please input a valid cash value.");
     return;
   }
   if (price > cashValue) {
@@ -78,29 +80,48 @@ const purchase = () => {
     changeDue.innerHTML = `<p>Status: OPEN</p> <p>${changeArr.join("</p> <p>")}</p>`
     changeDiv.textContent = parseFloat(cashValue - price).toFixed(2);
   };
-
   countTill();
+  update_total_change();
+  update_max_cash();
+}
+
+const displayInt = (amountField, quantityField, label) => {
+  amountField.textContent = `$${Math.round(cid.find(element => element[0] === label)[1])}`;
+  quantityField.textContent = Math.round(cid.find(element => element[0] === label)[1] / values[label]);
+}
+
+const displayFloat = (amountField, quantityField, label) => {
+  amountField.textContent = `$${Math.abs(parseFloat(cid.find(element => element[0] === label)[1]).toFixed(2))}`;
+  quantityField.textContent = Math.round(cid.find(element => element[0] === label)[1] / values[label]);
 }
 
 const countTill = () => {
-  hundredAmount.textContent = Math.round(cid.find(element => element[0] === "ONE HUNDRED")[1]);
-  hundredQuantity.textContent = Math.round(cid.find(element => element[0] === "ONE HUNDRED")[1] / values["ONE HUNDRED"]);
-  twentyAmount.textContent = Math.round(cid.find(element => element[0] === "TWENTY")[1]);
-  twentyQuantity.textContent = Math.round(cid.find(element => element[0] === "TWENTY")[1] / values["TWENTY"]);
-  tenAmount.textContent = Math.round(cid.find(element => element[0] === "TEN")[1]);
-  tenQuantity.textContent = Math.round(cid.find(element => element[0] === "TEN")[1] / values["TEN"]);
-  fiveAmount.textContent = Math.round(cid.find(element => element[0] === "FIVE")[1]);
-  fiveQuantity.textContent = Math.round(cid.find(element => element[0] === "FIVE")[1] / values["FIVE"]);
-  oneAmount.textContent = Math.round(cid.find(element => element[0] === "ONE")[1]);
-  oneQuantity.textContent = Math.round(cid.find(element => element[0] === "ONE")[1] / values["ONE"]);
-  quarterAmount.textContent = Math.abs(parseFloat(cid.find(element => element[0] === "QUARTER")[1]).toFixed(2));
-  quarterQuantity.textContent = Math.round(cid.find(element => element[0] === "QUARTER")[1] / values["QUARTER"]);
-  nickelAmount.textContent = Math.abs(parseFloat(cid.find(element => element[0] === "NICKEL")[1]).toFixed(2));
-  nickelQuantity.textContent = Math.round(cid.find(element => element[0] === "NICKEL")[1] / values["NICKEL"]);
-  dimeAmount.textContent = Math.abs(parseFloat(cid.find(element => element[0] === "DIME")[1]).toFixed(2));
-  dimeQuantity.textContent = Math.round(cid.find(element => element[0] === "DIME")[1] / values["DIME"]);
-  pennyAmount.textContent = Math.abs(parseFloat(cid.find(element => element[0] === "PENNY")[1]).toFixed(2));
-  pennyQuantity.textContent = Math.round(cid.find(element => element[0] === "PENNY")[1] / values["PENNY"]);
+  displayInt(hundredAmount, hundredQuantity, "ONE HUNDRED");
+  displayInt(twentyAmount, twentyQuantity, "TWENTY");
+  displayInt(tenAmount, tenQuantity, "TEN");
+  displayInt(fiveAmount, fiveQuantity, "FIVE");
+  displayInt(oneAmount, oneQuantity, "ONE");
+  
+  displayFloat(quarterAmount, quarterQuantity, "QUARTER");
+  displayFloat(nickelAmount, nickelQuantity, "NICKEL");
+  displayFloat(dimeAmount, dimeQuantity, "DIME");
+  displayFloat(pennyAmount, pennyQuantity, "PENNY");
+}
+
+const calculate_total_change = () => {
+  return cid.reduce((acc, el) => acc + el[1], 0)
+}
+
+const calculate_max_cash = () => {
+  return parseFloat(calculate_total_change()) + parseFloat(price);
+}
+
+const update_total_change = () => {
+  changeRemaining.textContent = `$${calculate_total_change().toFixed(2)}`;
+}
+
+const update_max_cash = () => {
+  maxCash.textContent = `$${calculate_max_cash().toFixed(2)}`;
 }
 
 const _money = [
@@ -127,8 +148,14 @@ const _denomRegexes = [
 function _randomNumber(max) {
   return Math.floor(Math.random() * (max + 1));
 }
-
 window.onload = () => {
-  priceDiv.textContent = price;
   countTill();
+  priceDiv.value = price;
+  priceDiv.addEventListener("keyup", () => {
+    price = parseFloat(priceDiv.value) || 0;
+    console.log(price);
+    update_max_cash();
+  });
+  update_total_change();
+  update_max_cash();
 }
