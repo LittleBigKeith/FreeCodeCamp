@@ -1,2 +1,5 @@
 .DS_Store
 .dockerignore
+.env
+node_modules
+pnpm-lock.yaml		
