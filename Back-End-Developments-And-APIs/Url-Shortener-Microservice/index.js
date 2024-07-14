@@ -6,7 +6,19 @@ const cors = require('cors');
 const app = express();
 app.use(bodyParser.urlencoded({extended: false}));
 
-let urlLib = {};
+const mongoose = require('mongoose');
+mongoose.connect(process.env.MONGO_URI, {});
+
+const urlSchema = new mongoose.Schema({
+  long: {
+    type: String,
+    required: true
+  },
+  short: Number,
+});
+
+const Url = mongoose.model('Url', urlSchema);
+
 // Basic Configuration
 const port = process.env.PORT || 3000;
 
@@ -30,13 +42,23 @@ app.post('/api/shorturl',
           console.log(err)
           res.json({ error : "invalid url" });
       } else {
-        urlLibSorted = Object.keys(urlLib).sort((a, b) => b - a);
-        next_index = urlLibSorted.length === 0 ? 1 : Number(urlLibSorted[0]) + 1;
-        urlLib[next_index] = req.body.url;
-        res.json({ 
-          original_url: req.body.url,
-          short_url: next_index,
-        })
+        Url.find({}).sort({ _id: -1 }).limit(1)
+           .then((lastUrl) => {
+            console.log("Last Url", lastUrl)
+            const next_index = lastUrl.length === 1 ? Number(lastUrl[0].short) + 1 : 1
+            Url.create({
+              long: req.body.url,
+              short: next_index
+            }).then (() =>
+              res.json({ 
+                original_url: req.body.url,
+                short_url: next_index,
+              })
+            )
+           })
+           .catch(
+            err => console.log(err)
+           )
       }
     });
   }
@@ -44,10 +66,10 @@ app.post('/api/shorturl',
 
 app.get("/api/shorturl/:shorturl",
   function(req, res) {
-    long_url = urlLib[req.params.shorturl];
-    if(long_url) {
-      res.redirect(long_url);
-    }
+    Url.findOne({short: req.params.shorturl})
+       .then((url) =>
+          res.redirect(url.long)
+       )
   }
 )
 
