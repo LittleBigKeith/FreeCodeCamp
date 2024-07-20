@@ -1,0 +1,17 @@
+#quote-box {
+    position: relative;
+    top: 72px;
+    max-width: 75vw;
+  }
+  
+  #button-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  
+  #button-box * {
+    margin-bottom: 1rem;
+  }
+  
